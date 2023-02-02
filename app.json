@@ -7,6 +7,10 @@
   ],
   "repository": "https://github.com/Desinobita",
   "env": {
+      "MARK": {
+      "description": "Main. Pyrogram String Session.",
+      "required": true
+      },
       "SESSION": {
           "description": "Pyrogram String Session.",
           "required": true
