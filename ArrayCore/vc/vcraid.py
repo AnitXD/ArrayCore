@@ -56,68 +56,54 @@ async def vraid(_, e: Message):
 async def vraid(_, e: Message):
      await e.reply_text(f"__There Is an Error In Command {HNDLR}praid !! \n We'll Fix It Soon__ \n\n **© @ArrayCore**")
 
-@vcbot.on_message(filters.user(SUDO_USERS) & filters.command(["vcraid"], prefixes=HNDLR))
-async def vcraid(_, e: Message):
-    gid = e.chat.id
-    uid = e.from_user.id
-    if gid == uid:
-        inp = e.text[8:]
-        chat_ = await Session.get_chat(inp)
-        chat_id = chat_.id
-    else:
-         chat_id = gid
-    aud1 = choice(aud_list)
-    aud2 = choice(aud_list)
-    aud3 = choice(aud_list)
-    aud4 = choice(aud_list)
-    aud5 = choice(aud_list)
-    aud6 = choice(aud_list)
-    aud7 = choice(aud_list)
-    aud8 = choice(aud_list)
-    if inp:
-        TheVenomXD = await e.reply_text("**Starting VC raid**")
-        link = f"https://itshellboy.tk/{aud1[1:]}"
-        dl1 = aud1
-        dl2 = aud2
-        dl3 = aud3
-        dl4 = aud4
-        dl5 = aud5
-        dl7 = aud6
-        dl6 = aud7
-        dl8 = aud8
-        songname = aud1[18:]
-        if chat_id in QUEUE:
-            pos = add_to_queue(chat_id, songname, dl1, dl2, dl3, dl4, dl5, dl6, dl7, dl8, link, "Audio", 0)
-            await TheVenomXD.delete()
-            await e.reply_text(f"**> Raiding in:** {chat_.title} \n\n**> Audio:** {songname} \n**> Position:** #{pos}")
-        else:
-            if call_py1:
-                await Session.join_chat(chat_id)
-                await call_py1.join_group_call(chat_id, AudioPiped(dl1), stream_type=StreamType().pulse_stream)
-            if call_py2:
-                await Session2.join_chat(chat_id)
-                await call_py2.join_group_call(chat_id, AudioPiped(dl2), stream_type=StreamType().pulse_stream)
-            if call_py3:
-                await Session3.join_chat(chat_id)
-                await call_py3.join_group_call(chat_id, AudioPiped(dl3), stream_type=StreamType().pulse_stream)
-            if call_py4:
-                await Session4.join_chat(chat_id)
-                await call_py4.join_group_call(chat_id, AudioPiped(dl4), stream_type=StreamType().pulse_stream)
-            if call_py5:
-                await Session5.join_chat(chat_id)
-                await call_py5.join_group_call(chat_id, AudioPiped(dl5), stream_type=StreamType().pulse_stream)
-            if call_py6:
-                await Session6.join_chat(chat_id)
-                await call_py6.join_group_call(chat_id, AudioPiped(dl6), stream_type=StreamType().pulse_stream)
-            if call_py7:
-                await Session7.join_chat(chat_id)
-                await call_py7.join_group_call(chat_id, AudioPiped(dl7), stream_type=StreamType().pulse_stream)
-            if call_py8:
-                await Session8.join_chat(chat_id)
-                await call_py8.join_group_call(chat_id, AudioPiped(dl8), stream_type=StreamType().pulse_stream)
-            add_to_queue(chat_id, songname, dl1, dl2, dl3, dl4, dl5, dl6, dl7, dl8, link, "Audio", 0)
-            await TheVenomXD.delete()
-            await e.reply_text(f"**> Raiding in:** {chat_.title} \n\n**> Audio:** {songname} \n**> Position:** Ongoing Raid")
+@vcbot.on_message(filters.private & filters.command("vcraid"))
+async def handle_message(client, message):
+        chat_username = await vcbot.ask(
+        message.chat.id,
+        "Enter the username of the group chat you want to raid:"
+    )
+
+    # Check if the entered username is valid
+        try:
+            chat = await vcbot.get_chat(chat_username.text)
+        except pyrogram.errors.exceptions.bad_request_400.UsernameInvalid:
+            await message.reply_text("Invalid chat username. Please try again.")
+        return
+
+    # Prompt the user to send an audio message
+        audio_message = await vcbot.ask(
+        message.chat.id,
+        "Please send the audio you want to play in the group chat:"
+    )
+
+    # Download the audio message
+        audio_file = await audio_message.download()
+        if call_py1:
+                    await Session.join_chat(chat_username)
+                    await call_py1.join_group_call(chat_username, AudioPiped(audio_file), stream_type=StreamType().pulse_stream)
+        if call_py2:
+                    await Session2.join_chat(chat_username)
+                    await call_py2.join_group_call(chat_username, AudioPiped(audio_file), stream_type=StreamType().pulse_stream)
+        if call_py3:
+                    await Session3.join_chat(chat_username)
+                    await call_py3.join_group_call(chat_username, AudioPiped(audio_file), stream_type=StreamType().pulse_stream)
+        if call_py4:
+                    await Session4.join_chat(chat_username)
+                    await call_py4.join_group_call(chat_username, AudioPiped(audio_file), stream_type=StreamType().pulse_stream)
+        if call_py5:
+                    await Session5.join_chat(chat_username)
+                    await call_py5.join_group_call(chat_username, AudioPiped(audio_file), stream_type=StreamType().pulse_stream)
+        if call_py6:
+                    await Session6.join_chat(chat_username)
+                    await call_py6.join_group_call(chat_username, AudioPiped(audio_file), stream_type=StreamType().pulse_stream)
+        if call_py7:
+                    await Session7.join_chat(chat_username)
+                    await call_py7.join_group_call(chat_username, AudioPiped(audio_file), stream_type=StreamType().pulse_stream)
+        if call_py8:
+                    await Session8.join_chat(chat_username)
+                    await call_py8.join_group_call(chat_username, AudioPiped(audio_file), stream_type=StreamType().pulse_stream)
+
+                    await vcbot.reply_text("VC Raid started!")
 
 
 @vcbot.on_message(filters.user(SUDO_USERS) & filters.command(["raidend"], prefixes=HNDLR))
