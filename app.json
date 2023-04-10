@@ -1,15 +1,15 @@
 {
-    "name": "• ArrayCore : 2022 - 2022 •",
+    "name": "• LIFESTYLE : 2022 - 2022 •",
     "description": "- A Multi Clients telegram Group voice Call Userbots. ArrayCore Having Many Features.",
-    "logo": "https://telegra.ph/file/b918befe58de65045878c.jpg",
+    "logo": "https://telegra.ph//file/e1498ed90b4f3555e0a5b.jpg",
     "keywords": [
         "Telegram",
         "VCBot",
         "MusicPlayer",
-        "ArrayCore",
+        "LIFESTYLE",
         "vcraid"
     ],
-    "repository": "https://github.com/Desinobita",
+    "repository": "https://github.com/lifestylr,",
     "env": {
         "SESSION": {
             "description": "Pyrogram String Session.",
