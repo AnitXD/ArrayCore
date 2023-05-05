@@ -25,7 +25,7 @@
 > The easy way to host this bot, deploy to Heroku
 > If you Deploy on Heroku you can Use Upto 8 Multi Clients !
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/The-HellBot/ArrayCore/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AnitXD/vcraid/lifestyle)
 
 </details>
 
@@ -44,9 +44,9 @@
 
 # Credits
 - Team
-  - [Akash](https://github.com/Desinobita)   ``Creator``
-  - [HellBoy](https://github.com/HellBoy-OP) ``Dev``
-  - [RiZoeL](https://github.com/MrRizoel)    ``Dev``
+  - [Owner](https://github.com/AnitXD/vcraid/lifestyle)   ``Creator``
+  - [Official owner](https://github.com/AnitXD/vcraid/lifestyle) ``Dev``
+  - [Lifestyle](https://github.com/AnitXD/vcraid/lifestyle)    ``Dev``
 
 - Libraries
   - [pytgcalls](https://github.com/pytgcalls/pytgcalls)
